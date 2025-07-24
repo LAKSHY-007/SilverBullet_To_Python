@@ -1,51 +1,61 @@
-# **🐍 SilverBullet ➡️ Python Checker Generator**
+# **🐍 SilverBullet ➡️ Python Checker Generator**  
 
-###### SB-to-Python Generator is a powerful GUI tool that instantly converts your SilverBullet (SB) config scripts into a fully working, modern Python checker with a CustomTkinter GUI. It brings together automation, premium UI, and easy editing for quick prototyping and advanced parsing.
+*Convert SB scripts into modern Python checkers with a single click!*  
 
-## **🚀 Features**
+![Demo](https://img.shields.io/badge/Demo-Coming_Soon-blue) 
+![Python](https://img.shields.io/badge/Python-3.8%2B-green) 
+![License](https://img.shields.io/badge/License-MIT-orange) 
+![CustomTkinter](https://img.shields.io/badge/GUI-CustomTkinter-purple)  
 
-###### ⚡️ One-Click SB to Python Conversion: Paste your SilverBullet config, hit Generate—get a ready-to-run CustomTkinter checker in seconds.
+### **⚡ Instant SB-to-Python GUI Conversion**  
+**SB-to-Python Generator** transforms raw SilverBullet (SB) config scripts into **fully functional Python checkers** with a sleek **CustomTkinter GUI**—complete with stats, proxy support, and auto-captures.  
 
-###### 🎨 Premium GUI: Generates modern, resizable GUI (CustomTkinter) with dark theme, glossy buttons, stats bar, and CPM/Hits/Fails/Expired/Free counters.
+📌 **Perfect for:**  
+✔ Credential checkers ✔ Account validators ✔ API testers ✔ Automated web interactions  
 
-###### 🧠 Smart Header \& Payload Parser: Auto-extracts endpoints, HTTP methods, headers, POST/GET payloads, and auto-handles variable replacements (<USER>, <PASS>, <UA>).
+---
 
-###### 🕵️ Auto User-Agent Randomizer: Detects <UA> or custom user-agent variables and injects realistic random browser fingerprints for every request.
+## **✨ Features**  
 
-###### 🪄 Dynamic Captures: Parses all PARSE (capture) lines, supporting LR (Left/Right), JSON, and Regex extraction for any field (not just hardcoded values).
+| **Category**       | **Highlights** |
+|-------------------|---------------|
+| **🚀 Core Conversion** | One-click SB → Python generation |
+| **🎨 Premium GUI** | Dark mode, glossy buttons, live stats, CPM counter |
+| **🔍 Smart Parsing** | Auto-extracts endpoints, headers, payloads |
+| **📡 HTTP Handling** | GET/POST, dynamic headers, auto User-Agent rotation |
+| **🪄 Data Captures** | LR, JSON, Regex parsing → auto-saved variables |
+| **🔑 KeyChecks** | Success/Fail/Retry/Expired/Free/Custom conditions |
+| **🔄 Proxy Support** | Auto-formatting, recycling, HTTP/SOCKS support |
+| **📊 Stats & Logs** | Real-time CPM, hits, fails, scrolling output |
+| **📂 File Handling** | Auto-saves results to `Success.txt`, `Expired.txt`, etc. |
+| **⚡ Performance** | Multithreaded, optimized for speed |
 
-###### 🔑 Flexible KeyChecks: Converts all SB KEYCHECK chains (Success, Failure, Retry, Expired, Free, Custom) into robust Python status checks.
+---
 
-###### 📑 Auto Combo \& Proxy Support: Loads combo/proxy lists via GUI and supports all major proxy formats (with auto-recycling).
+## **🛠️ Installation**  
 
-###### 📝 Hit/Expired/Free/Custom Writer: Writes results to Success.txt, Expired.txt, Free.txt, Custom.txt as captured.
+### **Requirements**  
+- Python 3.8+  
+- `customtkinter`  
+- `httpx`  
 
-###### 🌀 CPM, Stats, and Live Logging: Real-time updates for hits, fails, retries, CPM, and more, with scrolling output.
+### **Setup**  
+```bash
+git clone https://github.com/yourusername/sb-to-python-generator.git
+cd sb-to-python-generator
+pip install -r requirements.txt
+python sb_to_python_gui.py
+```
 
-###### 🧩 No More Content-Length Headaches: Automatically removes and manages Content-Length for robust HTTP requests.
 
-###### 🔒 Multithreaded for Max Speed: Instantly scales with user-selected threads.
 
-###### 🖱️ Premium Experience: Glossy buttons, modern circular stats bar, credits window, all easily modifiable.
 
-###### 🧩 Modular \& Extendable: Perfect base for advanced configs, additional parsing, or integrating with other tools.
 
-######  Copy. Paste. Generate. Done!
-
-## ** How it Works**
-Paste your SB config into the generator.
-Click Generate—the script parses all endpoints, headers, payloads, keychains, captures, etc.
-A complete Python checker GUI is generated as GeneratedChecker.py—no manual coding needed!
-Load combos \& proxies, hit Start, and check accounts with a modern Python GUI.
-
-## ** Built With**
-
-Python 3.9+
-CustomTkinter
-httpx
-Regex, threading, queue, etc.
-### ** Use Cases**
-
-Instantly prototype checkers for any SB config.
-Share fully working Python checkers with friends or teammates—no SB experience needed!
-Easily adapt and extend code for custom automation tasks.
+## Example SB Input
+REQUEST POST "https://api.example.com/login"
+HEADER "Content-Type: application/json"
+HEADER "User-Agent: <UA>"
+STRINGCONTENT '{"email":"<USER>","password":"<PASS>"}'
+KEYCHAIN success
+KEY "Welcome back"
+PARSE "<SOURCE>" LR "token":"<" -> CAP "auth_token"
